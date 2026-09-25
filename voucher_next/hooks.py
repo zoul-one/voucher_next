@@ -83,12 +83,13 @@ app_license = "mit"
 # ------------
 
 # before_install = "voucher_next.install.before_install"
-# after_install = "voucher_next.install.after_install"
+after_install = "voucher_next.setup.after_install"
+after_migrate = "voucher_next.setup.after_migrate"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "voucher_next.uninstall.before_uninstall"
+before_uninstall = "voucher_next.setup.before_uninstall"
 # after_uninstall = "voucher_next.uninstall.after_uninstall"
 
 # Integration Setup

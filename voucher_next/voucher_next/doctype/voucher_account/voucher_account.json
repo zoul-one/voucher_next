@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-25 17:45:48.888136",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "voucher_entry_type",
+  "account",
+  "party_type",
+  "party",
+  "column_break_pgpw",
+  "reference_doctype",
+  "description",
+  "amount",
+  "reference_docname",
+  "attachments"
+ ],
+ "fields": [
+  {
+   "fieldname": "voucher_entry_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Voucher Entry Type",
+   "options": "Voucher Entry Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Party Type",
+   "options": "DocType",
+   "search_index": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "column_break_pgpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Reference Doctype",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_docname",
+   "fieldtype": "Dynamic Link",
+   "hidden": 1,
+   "label": "Reference Docname",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach Image",
+   "label": "Attachments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-25 17:45:48.888136",
+ "modified_by": "Administrator",
+ "module": "Voucher Next",
+ "name": "Voucher Account",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
