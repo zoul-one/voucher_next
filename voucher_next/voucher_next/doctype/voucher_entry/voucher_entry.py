@@ -23,7 +23,8 @@ class VoucherEntry(Document):
 
 		journal_entry = frappe.new_doc("Journal Entry")
 		journal_entry.posting_date = self.posting_date
-		journal_entry.user_remark = self.user_remarks
+		journal_entry.custom_remark = True
+		journal_entry.remark = self.user_remarks
 		journal_entry.cheque_date = self.reference_date
 		journal_entry.cheque_no = self.bank_reference
 		journal_entry.cost_center = self.cost_center
