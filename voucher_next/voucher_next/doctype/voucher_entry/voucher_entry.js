@@ -13,6 +13,10 @@ frappe.ui.form.on('Voucher Entry', {
 	},
 	account: function(frm){
 		update_account_balance(frm);
+		update_account_balance(frm);
+	},
+	posting_date: function(frm){
+		update_account_balance(frm);
 	},
 	on_submit: function(frm) {
 		validate_balance(frm);
@@ -137,22 +141,26 @@ function manage_form_buttons(frm) {
 }
 
 /**
- * Fetch and update the balance for the selected account in the form.
- **/
+ * Fetch and update the balance for the selected account.
+ */
 function update_account_balance(frm) {
-	if (frm.doc.account) {
-		 frappe.call({
-			 method: 'erpnext.accounts.utils.get_balance_on',
-			 args: {
-				 account: frm.doc.account,
-			 },
-			 callback: function(r) {
-				 if (r.message) {
-					 frm.set_value('balance', r.message); // Set the balance field in the form
-				 }
-			 }
-		 });
-	}
+    if (!frm.doc.account) {
+        frm.set_value('balance', 0);
+        return;
+    }
+
+    frappe.call({
+        method: 'voucher_next.voucher_next.doctype.voucher_entry.voucher_entry.get_account_balance',
+        args: {
+            account: frm.doc.account,
+            date: frm.doc.posting_date
+        },
+        callback: function(r) {
+            if (r.message !== undefined) {
+                frm.set_value('balance', r.message);
+            }
+        }
+    });
 }
 
 /**

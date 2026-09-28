@@ -4,7 +4,7 @@
 from frappe.model.document import Document
 import frappe
 from frappe.utils import get_link_to_form
-from erpnext.accounts.utils import get_account_balances
+from erpnext.accounts.utils import get_account_balances, get_balance_on
 from frappe import _
 
 class VoucherEntry(Document):
@@ -146,3 +146,11 @@ def validate_mode_of_payment_with_bank_account(voucher_entry, mode_of_payment, c
 		"valid_accounts": valid_accounts,
 		"has_company": any(account.company == company for account in mop_doc.accounts)
 	}
+
+
+@frappe.whitelist()
+def get_account_balance(account, date=None):
+	return get_balance_on(
+		account=account,
+		date=date
+	)
