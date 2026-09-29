@@ -29,7 +29,6 @@
   "column_break_vjet",
   "bank_reference",
   "reference_date",
-  "amended_from",
   "amended_from"
  ],
  "fields": [
@@ -43,7 +42,7 @@
    "fieldname": "payment_type",
    "fieldtype": "Select",
    "label": "Payment Type",
-   "options": "Pay"
+   "options": "Pay\nReceive"
   },
   {
    "fieldname": "column_break_lfgg",
@@ -181,7 +180,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-09-25 17:46:58.155994",
+ "modified": "2026-09-29 07:09:51.966306",
  "modified_by": "Administrator",
  "module": "Voucher Next",
  "name": "Voucher Entry",
@@ -204,5 +203,6 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
